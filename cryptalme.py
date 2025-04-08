@@ -1,12 +1,13 @@
 import requests
 import time
 
-# CONFIGURATION
+# Configuration
 CRYPTO_ID = 'bitcoin'  # CoinGecko coin ID, e.g., 'bitcoin', 'ethereum'
 CURRENCY = 'usd'
 PRICE_THRESHOLD = 70000  # Set your alert threshold
 CHECK_INTERVAL = 60  # In seconds
 
+# Price check
 def get_crypto_price(crypto_id, vs_currency):
     url = f'https://api.coingecko.com/api/v3/simple/price'
     params = {
@@ -22,6 +23,7 @@ def get_crypto_price(crypto_id, vs_currency):
         print(f"Error fetching price: {e}")
         return None
 
+# Main loop
 def run_alert_bot():
     print(f"🔔 Cryptalme is now monitoring {CRYPTO_ID.upper()} price every {CHECK_INTERVAL}s.")
     while True:
